@@ -1,0 +1,52 @@
+$background: #ffffff80;
+
+.container {
+    pointer-events: none;
+    position: absolute;
+    display: flex;
+    bottom: 35px;
+    width: 100%;
+    justify-content: center;
+
+    .taskbar {
+        pointer-events: all;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        .add {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: $background;
+            border-radius: 10px;
+            font-size: 1.5em;
+        }
+        .appcontainer {
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $background;
+            padding: 10px;
+            border-radius: 10px;
+            gap: 15px;
+            overflow: hidden;
+            transition: all 300ms;
+            &>div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .app-icon {
+                width: 0px;
+                transition: all 0.5s;
+                &.show {
+                    width: 40px;
+                }
+            }
+        }
+    }
+}
