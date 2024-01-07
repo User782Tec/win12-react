@@ -21,14 +21,37 @@ function Taskbar({ onAppClick }) {
     useEffect(() => {
         const taskbar = ref.current;
         for (const elt of taskbar.children[0].children) {
-            setTimeout(() => { elt.children[0].classList.add('show'); }, 0);
+            setTimeout(() => {
+                elt.children[0].classList.add('show');
+            }, 0);
         }
     }, [useTask]);
     return (
-        <div className='container'>
-            <div className='taskbar' ref={ref}>
-                <div className="appcontainer">{useTask.map((i, index) => <AppIcon key={index} onClick={() => {onAppClick(i);}} onDoubleClick={() => { deleteApp(index); }} imgsrc={'/icons/' + i + '.svg'} name={i} ></AppIcon>)}</div>
-                <div className='add' onClick={() => { append(); }}><span>+</span></div>
+        <div className="container">
+            <div className="taskbar" ref={ref}>
+                <div className="appcontainer">
+                    {useTask.map((i, index) => (
+                        <AppIcon
+                            key={index}
+                            onClick={() => {
+                                onAppClick(i);
+                            }}
+                            onDoubleClick={() => {
+                                deleteApp(index);
+                            }}
+                            imgsrc={'/icons/' + i + '.svg'}
+                            name={i}
+                        ></AppIcon>
+                    ))}
+                </div>
+                <div
+                    className="add"
+                    onClick={() => {
+                        append();
+                    }}
+                >
+                    <span>+</span>
+                </div>
             </div>
         </div>
     );

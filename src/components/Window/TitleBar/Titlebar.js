@@ -7,7 +7,7 @@ TitleBar.propTypes = {
 };
 
 function TitleBar({ title }) {
-    return <div className='title-bar'>{title}</div>;
+    return <div className="title-bar">{title}</div>;
 }
 
 export default TitleBar;

@@ -4,6 +4,10 @@
 
 作者：tjy-gitnub/win12原班人马（项目主管：@User782Tec）
 
+## 在线体验
+
+ <https://win12-react.netlify.app/>
+
 ## 安装和使用
 
 1. 确保计算机安装了Node.js(>=20.10.0)并能正常使用node、npx和npm命令 
@@ -13,6 +17,10 @@
 3. 进入项目根目录，运行：`npm install`安装项目依赖。
 
 4. 运行`npm run start`后即可搭建本地服务器。打开浏览器并访问`localhost:3000`来体验或开发。
+
+## 开发须知
+
+请使用ESLint检查并修复问题，Prettier格式化代码后再提交
 
 ## 开源说明
 
