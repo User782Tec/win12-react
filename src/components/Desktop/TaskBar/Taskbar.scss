@@ -1,48 +1,42 @@
-$background: #ffffff80;
+@import '../../../global.scss';
 
 .container {
+    @include center;
     pointer-events: none;
     position: absolute;
-    display: flex;
     bottom: 35px;
     width: 100%;
-    justify-content: center;
+    z-index: 20;
 
     .taskbar {
+        @include center;
         pointer-events: all;
-        display: flex;
         gap: 20px;
-        justify-content: center;
-        align-items: center;
         .add {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include blur;
+            @include act;
+            @include big-radius;
+            @include center;
             width: 40px;
             height: 40px;
-            background-color: $background;
-            border-radius: 10px;
             font-size: 1.5em;
         }
         .appcontainer {
+            @include blur;
+            @include big-radius;
+            @include medium-transition;
+            @include center;
             height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $background;
             padding: 10px;
-            border-radius: 10px;
             gap: 15px;
             overflow: hidden;
-            transition: all 300ms;
             &>div {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include center;
+                @include act;
             }
             .app-icon {
+                @include slow-transition;
                 width: 0px;
-                transition: all 0.5s;
                 &.show {
                     width: 40px;
                 }

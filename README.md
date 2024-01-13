@@ -1,12 +1,15 @@
 # win12-react
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f6315024-2bef-414f-9e3d-3aa3c72d1717/deploy-status)](https://app.netlify.com/sites/win12-react/deploys)
+
 基于React开发的网页版win12项目
 
 作者：tjy-gitnub/win12原班人马（项目主管：@User782Tec）
 
+
 ## 在线体验
 
- <https://win12-react.netlify.app/>
+<https://win12-react.netlify.app/>
 
 ## 安装和使用
 
@@ -39,6 +42,10 @@
 不是在该项目基础上进行增加、修改的，仅参考源码的，不需要开源，但也仅供学习用途。
 
 在此规定附加条例：
+
+- 本项目中使用tjy-gitnub/win12项目的部分图片资源，均以原项目EPL-2.0协议开源
+
+- 本项目使用的开源项目的开源协议以其使用的开源协议为准。
 
 - 任何使用或分享本项目者，必须在介绍里附上原作者及项目链接，不得故意隐藏原项目中的署名信息、原作者或项目链接，不得限制查看原项目中的署名信息、原作者或项目链接，且不得修改原项目中的署名信息；
 

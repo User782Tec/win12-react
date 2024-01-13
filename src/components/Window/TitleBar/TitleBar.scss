@@ -1,4 +1,20 @@
+@import '../../../global.scss';
+
 .title-bar {
+    @include center;
+    justify-content: space-between;
     text-align: center;
     font-size: larger;
+    height: 43px;
+    padding: 0 0 10px 10px;
+
+    .left {
+        @include center;
+        gap: 10px;
+    }
+
+    p {
+        font-size: 15px;
+        margin-top: 10px;
+    }
 }

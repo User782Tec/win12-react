@@ -1,0 +1,30 @@
+@import '../../../../global.scss';
+
+.title-icons {
+    display: flex;
+    font-size: 13px;
+    align-items: stretch;
+    height: 100%;
+    justify-content: stretch;
+
+    .disable {
+        opacity: 0.75;
+        pointer-events: none;
+    }
+
+    & > * {
+        @include small-radius;
+        @include fast-transition;
+        @include a;
+        padding-top: 10px;
+        width: 45px;
+        height: 100%;
+        &:hover {
+            background-color: #1111110f;
+        }
+        &.close:hover {
+            background-color: #d80d1c;
+            color: #ffffff;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WindowLists = {
+const WindowsList = {
     settings: {
         id: 0,
         content: (
@@ -17,7 +17,7 @@ const WindowLists = {
                 <p>运行</p>
             </div>
         ),
-        title: '设置'
+        title: '运行'
     },
     camera: {
         id: 2,
@@ -26,10 +26,10 @@ const WindowLists = {
                 <p>相机</p>
             </div>
         ),
-        title: '设置'
+        title: '相机'
     }
 };
 
-const WINDOW_MARGIN = 7;
+const TITLE_BAR_HEIGHT = 25;
 
-export { WINDOW_MARGIN, WindowLists };
+export { TITLE_BAR_HEIGHT, WindowsList };
