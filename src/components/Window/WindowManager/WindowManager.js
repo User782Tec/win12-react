@@ -17,11 +17,28 @@ WindowManager.propTypes = {
 };
 
 function WindowManager({ x, y, width, height, title, children, order, onOrder, onClose, appimg }) {
+    // 窗口坐标（以左上角为准）
     const [pos, setPos] = useState({ x: x, y: y });
+    // 是否显示窗口
     const [show, setShow] = useState(false);
+    // 是否最大化窗口
+    const [max, setMax] = useState(false);
+    // 是否启用过渡
+    const [transition, setTransition] = useState(false);
+    // 获取标题栏元素，绑定事件
     const titleBar = useRef(null);
     useEffect(() => {
         function move(e) {
+            if (max == true && flag == false) {
+                // 防止二次调用
+                flag = true;
+                setMax(false);
+                setTransition(false);
+                // 计算窗口实际宽度（单位：px）
+                const w = width.match('%') ? window.innerWidth * (+width.replace('%', '') / 100) : width.replace('px', '');
+                // 重设deltaLeft
+                deltaLeft = (deltaLeft - (e.clientX / window.innerWidth) * (window.innerWidth - w));
+            }
             setPos({
                 x: e.clientX - deltaLeft + 'px',
                 y: e.clientY - deltaTop + 'px'
@@ -30,28 +47,48 @@ function WindowManager({ x, y, width, height, title, children, order, onOrder, o
         function clear() {
             window.onpointermove = null;
             window.onpointerup = null;
+            // 清除标记
+            flag = false;
         }
         const elt = titleBar.current;
         let deltaLeft = 0,
-            deltaTop = 0;
+            deltaTop = 0,
+            flag = false;
         elt.onpointerdown = (e) => {
             deltaLeft = e.clientX - elt.getBoundingClientRect().left;
             deltaTop = e.clientY - elt.getBoundingClientRect().top;
             window.onpointermove = move;
             window.onpointerup = clear;
         };
-    });
+    }, [max]);
     useEffect(() => {
-        setTimeout(() => {setShow(true);}, 10);
+        setTimeout(() => {
+            setTransition(true);
+            setShow(true);
+            setTimeout(() => {
+                setTransition(false);
+            }, 200);
+        }, 10);
     }, []);
     function handleClose(id) {
+        setTransition(true);
         setShow(false);
         onClose(id);
     }
+    function handleMax() {
+        setMax(!max);
+        if (max == true) {
+            window.setTimeout(() => {
+                setTransition(false);
+            }, 200);
+        } else {
+            setTransition(true);
+        }
+    }
     return (
-        <WindowContext.Provider value={{ close: handleClose }}>
+        <WindowContext.Provider value={{ close: handleClose, max: handleMax, isMax: max }}>
             <div
-                className={show ? 'window show' : 'window'}
+                className={'window ' + (show ? 'show ' : '') + (max ? 'max ' : '') + (!transition ? 'no-transition' : '')}
                 style={{
                     width: width,
                     height: height,

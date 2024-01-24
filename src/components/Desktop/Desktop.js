@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { WindowsList } from '../../utils/windows';
+import WindowGroup from '../Window/WindowGroup/WindowGroup';
 import Background from './BackGround/Background';
 import Taskbar from './TaskBar/Taskbar';
-import WindowGroup from '../Window/WindowGroup/WindowGroup';
-import { WindowsList } from '../../utils/windows';
+import { System } from '../../context/System/System';
 
 function Desktop() {
+    const context = useContext(System);
     const [windows, setWindows] = useState([]);
     function close(index) {
         setWindows(windows.toSpliced(index, 1));
     }
     return (
         <>
-            <Background image="/images/bg.svg"></Background>
+            <Background image={context.get('background')}></Background>
             <WindowGroup windowList={windows} onClose={close}></WindowGroup>
             <Taskbar
                 onAppClick={(name) => {

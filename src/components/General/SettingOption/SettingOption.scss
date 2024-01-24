@@ -1,0 +1,94 @@
+@import '../../../global.scss';
+
+.setting-option {
+    @include vars;
+    @include center;
+    width: 100%;
+    color: $text;
+    background: $card;
+    margin-bottom: 7px;
+    border-radius: 8px;
+    /* border: 1.5px solid #6f6f6f30; */
+    box-shadow: 0 1px 2px 0px $s3d;
+    text-decoration: none;
+    padding: 10px 15px;
+    /* box-shadow: 0 1px 2px 1.5px var(--s3d); */
+    transition: 100ms;
+    justify-content: space-around;
+    border: 2px solid #00000000;
+    background-clip: padding-box;
+    &:hover {
+        text-decoration: none;
+        background-color: $hover;
+        border-color: $hover;
+    }
+    &:active {
+        filter: opacity(0.75);
+        .expand {
+            > * {
+                transform: scale(0.93);
+                filter: opacity(0.75);
+            }
+            &.show > * {
+                transform: rotate(-180deg) scale(0.93);
+            }
+        }
+    }
+
+    &.dropdown {
+        margin-bottom: 1px;
+        z-index: 1;
+
+        &.show {
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 1px;
+            box-shadow: 0 0.5px 1px 1px $s3d;
+        }
+    }
+
+    > div.text {
+        flex-grow: 1;
+        > p {
+            &:first-child {
+                font-size: 19px;
+                margin: 3px 0 0 0;
+            }
+            &:last-child {
+                font-size: 10px;
+                color: #7f7f7f;
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    @mixin icon {
+        // flex-grow: 1;
+        // margin-top: 15px;
+        color: #7f7f7f;
+        font-size: 20px;
+    }
+
+    > .bootstrap-icon {
+        @include icon;
+        &::before {
+            position: relative;
+            float: right;
+            right: 5px;
+        }
+    }
+    > .expand {
+        @include icon;
+
+        > .bootstrap-icon {
+            float: right;
+            margin-right: 20px;
+            &::before {
+                vertical-align: bottom;
+            }
+        }
+    }
+
+    .settings-icon {
+        font-size: 20px;
+    }
+}

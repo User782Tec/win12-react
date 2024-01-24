@@ -1,6 +1,7 @@
-@import "./global.scss";
+@import './global.scss';
 
 * {
+    @include vars;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -17,4 +18,35 @@ html {
 
 img {
     pointer-events: none;
+}
+
+#app {
+    &.no-border-radius {
+        * {
+            border-radius: 0 !important;
+        }
+    }
+    &.no-shadow {
+        * {
+            box-shadow: none !important;
+        }
+    }
+    &.no-animation {
+        * {
+            transition: none !important;
+        }
+    }
+}
+
+.user-head {
+    @include  user;
+}
+
+@font-face {
+    font-family: SettingsIcons;
+    src: url('./assets/settings-icons/icons.woff2');
+}
+@font-face {
+    font-family: Win12Icons;
+    src: url('./assets/win12-icons/icons.woff2');
 }

@@ -4,6 +4,8 @@ import { WindowContext } from '../../../../context/Window/WindowContext';
 import { useContext } from 'react';
 import '../../../../assets/bootstrap-icons/bootstrap.scss';
 import './TitleIcons.scss';
+import BootstrapIcon from '../../../General/BootstrapIcon/BootstrapIcon';
+import Win12Icon from '../../../General/Win12Icon/Win12Icon';
 TitleIcons.propTypes = {
     close: PropTypes.string,
     min: PropTypes.string,
@@ -16,7 +18,7 @@ function TitleIcons({ close = 'show', min = 'show', max = 'show' }) {
         <div className="title-icons">
             {min != 'hidden' ? (
                 <div className={min == 'disable' ? 'min disable' : 'min'} onClick={funcs.min}>
-                    <i className="bi bi-dash-lg"></i>
+                    <BootstrapIcon name='dash-lg' />
                 </div>
             ) : (
                 <></>
@@ -24,14 +26,14 @@ function TitleIcons({ close = 'show', min = 'show', max = 'show' }) {
 
             {max != 'hidden' ? (
                 <div className={max == 'disable' ? 'max disable' : 'max'} onClick={funcs.max}>
-                    <i className="bi bi-app"></i>
+                    {(!funcs.isMax ? <BootstrapIcon name='app' /> : <Win12Icon glyph='' />)}
                 </div>
             ) : (
                 <></>
             )}
             {close != 'hidden' ? (
                 <div className={close == 'disable' ? 'close disable' : 'close'} onClick={funcs.close}>
-                    <i className="bi bi-x-lg"></i>
+                    <BootstrapIcon name='x-lg' />
                 </div>
             ) : (
                 <></>

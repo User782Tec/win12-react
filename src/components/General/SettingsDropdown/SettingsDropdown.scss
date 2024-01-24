@@ -1,0 +1,30 @@
+@import '../../../global.scss';
+.settings-dropdown {
+    @include vars;
+    width: 100%;
+    color: $text;
+    background: $card;
+    /* border: 1.5px solid #6f6f6f30; */
+    /* box-shadow: 0 1px 2px 1.5px $s3d; */
+    justify-content: space-around;
+    border: 2px solid #00000000;
+    background-clip: padding-box;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 0;
+    transition: max-height 300ms, padding 300ms 100ms, opacity 200ms;
+    overflow: hidden;
+    display: block;
+    padding: 0 15px;
+    opacity: 0;
+    margin: 0 0 6px 0;
+    box-shadow: none;
+    background-color: $card;
+    &.show {
+        padding: 10px 15px;
+        transition: max-height 300ms, padding 200ms 50ms, opacity 200ms 100ms;
+        max-height: 1000px;
+        opacity: 1;
+        box-shadow: 0 1px 2px 1px $s3d;
+    }
+}

@@ -1,0 +1,39 @@
+@import '../../../global.scss';
+
+.checkbox {
+    @include vars;
+    display: block;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, $hover-b, $hover-b);
+    transition: 200ms;
+    &::before {
+        content: '';
+        display: block;
+        height: 16px;
+        width: 16px;
+        border-radius: 8px;
+        background: #fff;
+        position: relative;
+        top: 2px;
+        left: 2px;
+        transition: 100ms;
+        transform: scale(0.8);
+    }
+    &.checked {
+        background: linear-gradient(90deg, $theme-1, $theme-2);
+        &::before {
+            left: 22px;
+        }
+        &:active::before {
+            left: 18px;
+        }
+    }
+    &:hover::before {
+        transform: none;
+    }
+    &:active::before {
+        width: 20px;
+    }
+}

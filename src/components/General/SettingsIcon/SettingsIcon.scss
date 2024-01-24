@@ -1,0 +1,9 @@
+@import '../../../global.scss';
+
+.settings-icon {
+    font-family: SettingsIcons;
+    &.linear {
+        @include vars;
+        @include linear-text;
+    }
+}

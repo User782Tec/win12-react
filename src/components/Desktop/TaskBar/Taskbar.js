@@ -15,7 +15,9 @@ function Taskbar({ onAppClick }) {
     }
     function deleteApp(index) {
         if (useTask.length > 1) {
-            setTask(useTask.toSpliced(index, 1));
+            window.setTimeout(() => {
+                setTask(useTask.toSpliced(index, 1));
+            }, 300);
         }
     }
     useEffect(() => {

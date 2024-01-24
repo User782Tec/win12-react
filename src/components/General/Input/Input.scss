@@ -1,0 +1,36 @@
+@import "../../../global.scss";
+
+.input {
+    @include vars;
+    background-color: $bg50;
+    border: none;
+    border-bottom: 2.5px solid;
+    border-bottom-color: #7f7f7f7f;
+    border-radius: 7px;
+    padding: 3px 5px 3px 8px;
+    outline: medium;
+    width: 100%;
+    color: $text;
+    transition:
+        100ms,
+        border 0s;
+    box-shadow: 0 1px 2px $s3d;
+    &:hover {
+        background: $cm;
+    }
+    &:focus {
+        background-color: $bg;
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
+        background-image: linear-gradient($bg, $bg), linear-gradient(90deg, $theme-1, $theme-2);
+        border-bottom-color: transparent;
+        box-shadow: 0 1px 10px $s3d;
+        opacity: 1;
+    }
+}
+
+.input-before {
+    position: relative;
+    height: 0;
+    pointer-events: none;
+}

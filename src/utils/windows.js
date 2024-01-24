@@ -1,11 +1,13 @@
 import React from 'react';
+// import Input from '../components/General/Input/Input';
+import Settings from '../components/Container/Settings/Settings';
 
 const WindowsList = {
     settings: {
         id: 0,
         content: (
             <div className="window-settings">
-                <p>设置</p>
+                <Settings></Settings>
             </div>
         ),
         title: '设置'

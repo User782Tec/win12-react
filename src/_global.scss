@@ -1,3 +1,54 @@
+@mixin vars {
+    $text: #000 !global;
+    $text2: #444 !global;
+    $bg: #ffffff !global;
+    $bg50: #ffffff80 !global;
+    $bg70: #ffffffa0 !global;
+    $sd: #22222230 !global;
+    $card: #efefef55 !global;
+    $hover: #ffffff65 !global;
+    $hover-half: #ffffff40 !global;
+    $hover-b: #1111110f !global;
+    $bggrey: #ddd !global;
+    $fill: #d3d3d370 !global;
+    $mm: #ffffffc0 !global;
+    $cm: #fafafabb !global;
+    $bar: #efefef37 !global;
+    $hr: #ccc !global;
+    $unfoc: #eaeaea !global;
+    $msg: #ffffffe7 !global;
+    $theme-1: #ad6eca !global;
+    $theme-2: #3b91d8 !global;
+    $href: #2983cc !global;
+    $bd: #8f8f8f30 !global;
+    $s3d: #99999947 !global;
+    $mica: linear-gradient(215deg, #ffe7f6, #a9c3ff) !global;
+}
+
+@mixin vars-dark {
+    $text: #ddd !global;
+    $text2: #aaa !global;
+    $bg: #000000 !global;
+    $bg50: #00000060 !global;
+    $bg70: #00000090 !global;
+    $sd: #000000a0 !global;
+    $card: #72727240 !global;
+    $hover: #aaaaaa15 !global;
+    $hover-half: #ffffff0a !global;
+    $hover-b: #eeeeee0f !global;
+    $bggrey: #444 !global;
+    $fill: #54545470 !global;
+    $mm: #ffffff50 !global;
+    $cm: #252525bb !global;
+    $bar: #7272722a !global;
+    $hr: #333 !global;
+    $unfoc: #202020 !global;
+    $msg: #303030d0 !global;
+    $bd: #ffffff06 !global;
+    $s3d: #11111150 !global;
+    $mica: linear-gradient(215deg, #2d161c, #102d53) !global;
+}
+
 @mixin big-radius {
     border-radius: 10px;
 }
@@ -40,9 +91,7 @@
 }
 
 @mixin act {
-    transition:
-        80ms,
-        transform 400ms cubic-bezier(0.14, 1.02, 0.17, 0.03) !important;
+    transition: opacity 80ms, transform 400ms cubic-bezier(0.14, 1.02, 0.17, 0.03) !important;
     &:active {
         transform: scale(0.93);
         filter: opacity(0.75);
@@ -84,4 +133,20 @@
 
 @mixin a {
     cursor: pointer;
+}
+
+@mixin linear-text {
+    background-image: linear-gradient(100deg, $theme-1, $theme-2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: saturate(130%) brightness(1.1);
+}
+
+@mixin user {
+    width: 60px;
+    height: 60px;
+    background-color: $hover-b;
+    border-radius: 50%;
+    padding: 11px;
 }

@@ -1,0 +1,10 @@
+@import '../../../global.scss';
+
+.expand {
+    > * {
+        @include medium-transition;
+    }
+    &.show > * {
+        transform: rotate(-180deg);
+    }
+}

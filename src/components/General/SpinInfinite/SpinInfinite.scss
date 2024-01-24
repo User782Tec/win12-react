@@ -1,16 +1,16 @@
-svg.spin > circle:last-child {
-    stroke: #fff;
-    fill: none;
-    stroke-width: 2px;
-    stroke-linecap: round;
-    animation: spin-infinite 2.5s linear 0s infinite normal none running;
-    transform-origin: 50% 50%;
-    transition: all 0.2s ease-in-out 0s;
-}
-
 svg.spin {
     background-color: #00000000;
     border-radius: 50%;
+    circle {
+        fill: none;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        &:last-child {
+            animation: spin-infinite 2.5s linear 0s infinite normal none running;
+            transform-origin: 50% 50%;
+            transition: all 0.2s ease-in-out 0s;
+        }
+    }
 }
 
 @keyframes spin-infinite {
